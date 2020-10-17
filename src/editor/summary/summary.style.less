@@ -1,0 +1,45 @@
+@import '../var.less';
+.editor-summary{
+  width: var(--editor-summary-width);
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 16px 0px 0 16px;
+  user-select: none;
+  .item{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    height: 30px;
+    padding-right: 16px;
+    transition: all .3s ease;
+    cursor: pointer;
+    &:hover{
+      background-color: #f1f3f4;
+    }
+    &.h2{
+      padding-left: 8px;
+      font-weight: 700;
+    }
+    &.h3{
+      padding-left: 24px;
+      font-weight: 400;
+    }
+    &.h4{
+      padding-left: 40px;
+      font-weight: 300;
+    }
+    &.h5{
+      padding-left: 56px;
+      font-weight: 200;
+    }
+    &.h6{
+      padding-left: 72px;
+      font-weight: 100;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import '../../func.less';
+@import '../var.less';
+
+.editor-header{
+  height: var(--editor-header-height);
+  background-color: #fff;
+  padding: 0 16px;
+  user-select: none;
+  .hl-b(#dadce0);
+  .logo{
+    background-image: url(https://bee.aidigger.com/static/media/logo.d7729637.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 28px;
+    height: 30px;
+    display: inline-block;
+  }
+  .editor-header_right{
+    .avatar{
+      cursor: pointer;
+    }
+  }
+  .editor-header_left{
+    // height: 40px;
+    .editor-header_left_item{
+      margin-right: 16px;
+    }
+    .editor-header_left_info{
+      .title{
+        font-weight: 500;
+        sup{
+          color:#1890ff;
+        }
+      }
+      .slogen{
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        color: #999;
+      }
+      .extra{
+        font-size: 12px;
+        color:#ccc;
+      }
+    }
+  }
+}

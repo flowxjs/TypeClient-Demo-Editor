@@ -1,0 +1,45 @@
+.hairline() when (default()) {
+  position: relative;
+  &:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    // border-bottom: 1px @color solid;
+    content: "";
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    pointer-events: none;
+  }
+}
+
+.hl-l(@color){
+  .hairline();
+  &:after{
+    border-left: 1px solid @color;
+  }
+}
+
+.hl-r(@color){
+  .hairline();
+  &:after {
+    border-right: 1px solid @color;
+  }
+}
+
+.hl-t(@color){
+  .hairline();
+  &:after {
+    border-top: 1px solid @color;
+  }
+}
+
+.hl-b(@color){
+  .hairline();
+  &:after {
+    border-bottom: 1px solid @color;
+  }
+}

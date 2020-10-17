@@ -1,0 +1,162 @@
+.eigen-flex {
+  text-align: left;
+  display: flex;
+  .boxSizing(border-box);
+  .alignItems(center);
+
+  &-auto {
+    .overflow(hidden, auto);
+    transform: translate3d(0,0,0);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &-hide {
+    .overflow(hidden, hidden);
+  }
+
+  &-scroll {
+    .overflow(hidden, scroll);
+  }
+
+  &-nowrap {
+    .flexWrap(nowrap);
+  }
+
+  &-wrap {
+    .flexWrap(wrap);
+  }
+
+  &-wrap-reverse {
+    .flexWrap(wrap-reverse);
+  }
+
+  &-dir-row {
+    .flexDirection(row)
+  }
+
+  &-dir-row-reverse {
+    .flexDirection(row-reverse);
+  }
+
+  &-dir-column {
+    .flexDirection(column);
+  }
+
+  &-dir-column-reverse {
+    .flexDirection(column-reverse);
+  }
+
+  &-align-left {
+    .justifyContent(flex-start);
+  }
+
+  &-align-right {
+    .justifyContent(flex-end);
+  }
+
+  &-align-center {
+    .justifyContent(center);
+  }
+
+  &-align-between {
+    .justifyContent(space-between);
+  }
+
+  &-align-around {
+    .justifyContent(space-around);
+  }
+
+  &-valign-top {
+    .alignItems(flex-start)
+  }
+
+  &-valign-bottom {
+    .alignItems(flex-end)
+  }
+
+  &-valign-middle {
+    .alignItems(center)
+  }
+
+  &-valign-stretch {
+    .alignItems(stretch)
+  }
+
+  &-valign-baseline {
+    .alignItems(baseline)
+  }
+
+  &-align-content-start {
+    .alignContent(flex-start)
+  }
+
+  &-align-content-end {
+    .alignItems(flex-end)
+  }
+
+  &-align-content-center {
+    .alignItems(center)
+  }
+
+  &-align-content-between {
+    .alignItems(stretch)
+  }
+
+  &-align-content-around {
+    .alignItems(baseline)
+  }
+
+  &-align-content-stretch {
+    .alignItems(baseline)
+  }
+
+  &-item {
+    .boxSizing(border-box)
+  }
+
+  &-blocked {
+    width: 100%;
+  }
+
+  &-fulled {
+    height: 100%;
+  }
+}
+
+.loop(@count)when(@count > 0) {
+  .eigen-flex-span-@{count} {
+    flex: @count;
+  }
+  .loop((@count - 1))
+}
+
+.loop(24);
+
+.alignItems(@x)when(default()) {
+  align-items: @x
+}
+
+.overflow(@x, @y)when(default()) {
+  overflow-x: @x;
+  overflow-y: @y;
+}
+
+.flexWrap(@x)when(default()) {
+  flex-wrap: @x;
+}
+
+.flexDirection(@x)when(default()) {
+  flex-direction: @x;
+}
+
+.justifyContent(@x)when(default()) {
+  justify-content: @x;
+}
+
+.boxSizing(@x)when(default()) {
+  box-sizing: @x
+}
+
+.alignContent(@x)when(default()) {
+  align-content: @x
+}

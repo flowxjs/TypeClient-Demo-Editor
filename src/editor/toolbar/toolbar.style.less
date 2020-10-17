@@ -1,0 +1,24 @@
+@import '../../func.less';
+@import '../var.less';
+.editor-toolbar{
+  background-color: #fff;
+  width: 100%;
+  height: var(--editor-toolbar-height);
+  padding: 0 8px 0 16px;
+  user-select: none;
+  .hl-b(#dadce0);
+  .editor-extra-tools{
+    span.anticon{
+      display: flex;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+      &:hover{
+        background-color: #f1f3f4;
+        border-radius: 3px;
+      }
+    }
+  }
+}

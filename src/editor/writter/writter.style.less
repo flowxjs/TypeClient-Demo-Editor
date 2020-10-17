@@ -1,0 +1,45 @@
+@import '../../func.less';
+@import '../var.less';
+.editor-writter{
+  width: var(--editor-writter-width);
+  background-color: #fff;
+  box-shadow: 0 1px 3px 1px rgba(60,64,67,.15);
+  box-sizing: border-box;
+  padding:24px 32px;
+  h1{
+    font-size: 26px;
+    padding-bottom: 8px;
+    .hairline();
+    &:after{
+      border-bottom: 1px solid #dadce0;
+    }
+    &:before{
+      position: absolute;
+      top:0;
+      left: -32px;
+      width: 3px;
+      height: 100%;
+      background-color: #1890ff;
+      content: '';
+    }
+  }
+  h2{
+    font-size: 24px;
+  }
+  h3{
+    font-size: 22px;
+  }
+  h4{
+    font-size: 20px;
+  }
+  h5{
+    font-size: 18px;
+  }
+  h6{
+    font-size: 16px;
+  }
+  img{
+    max-width: 100%;
+    text-align: center;
+  }
+}
