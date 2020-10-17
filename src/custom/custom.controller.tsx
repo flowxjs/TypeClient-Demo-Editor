@@ -7,7 +7,7 @@ import { Button } from 'antd';
 export class CustomController {
   @Route()
   IndexPage(ctx: Context) {
-    const click = useCallback(() => ctx.redirect('/editor'), []);
+    const click = useCallback(() => ctx.redirect('/editor'), [ctx]);
     return <Flex blocked fulled align="center" valign="middle">
       <Button type="primary" onClick={click}>进入编辑器</Button>
     </Flex>

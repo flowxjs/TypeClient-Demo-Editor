@@ -8,10 +8,41 @@
   .inital{
     transition: all .3s ease;
     width: 0px;
+    overflow: hidden;
     &.active{
       width: var(--editor-plugin-container-width);
       background-color: #f1f3f4;
       .hl-l(#dadce0);
+      .editor-plugins-area{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .editor-plugins-area-item{
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          display: none;
+          &.active{
+            display: block;
+          }
+          .editor-plugin-header{
+            height: var(--editor-header-height);
+            padding: 0 16px;
+            background-color: #f6ffed;
+            .hl-b(#dadce0);
+          }
+          .editor-plugin-body{
+            .page{
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+            }
+            .error{
+              padding: 64px 32px;
+            }
+          }
+        }
+      }
     }
   }
 }

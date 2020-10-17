@@ -15,9 +15,10 @@ class EditorPluginChannelComponent implements ComponentTransform {
     const ctx = useApplicationContext<TEditorContext>();
     const id = useReactiveState(() => ctx.state.plugins.id);
     const click = useCallback(() => {
+      setImmediate(() => ctx.self.pluginFactory.setup(channel.id));
       if (ctx.state.plugins.id === channel.id) return ctx.state.plugins.id = 0;
       ctx.state.plugins.id = channel.id;
-    }, [channel.id, ctx.state.plugins.id]);
+    }, [channel.id, ctx.state.plugins.id, ctx.self.pluginFactory]);
     return <Flex className={classnames('plugin', { active: id === channel.id })} blocked align="center" valign="middle" onClick={click}>
       <Tooltip placement="left" title={channel.title}>
         <div>
