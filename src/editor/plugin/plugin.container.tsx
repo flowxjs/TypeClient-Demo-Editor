@@ -14,16 +14,10 @@ class EditorPluginContainerItemArea implements ComponentTransform {
     const ctx = useApplicationContext<TEditorContext>();
     const id = useReactiveState(() => ctx.state.plugins.id);
     useEffect(() => {
-      if (ctx.self.pluginFactory.loader) {
-        ctx.self.pluginFactory.loader(
-          document.getElementById('editor-plugin-' + props.item.id), 
-          props.item.html
-        ).then(() => {
-          setLoading(1);
-        }).catch(e => {
-          setLoading(2);
-        })
-      }
+      ctx.self.pluginFactory
+        .load(props.item.loader, document.getElementById('editor-plugin-' + props.item.id), props.item.resourceID)
+        .then(() => setLoading(1))
+        .catch(() => setLoading(2));
     }, []);
     return <div className={classnames('editor-plugins-area-item', {
       active: id === props.item.id,

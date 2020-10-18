@@ -1,5 +1,5 @@
 import { Service } from '@typeclient/core';
-import { TEditorPluginList } from './plugin/plugin.interface';
+import { TEditorPluginChannel, TEditorPluginList, TEditorPluginResource } from './plugin/plugin.interface';
 
 @Service()
 export class EditorService {
@@ -13,7 +13,8 @@ export class EditorService {
           title: '素材推荐',
           label: '大黄蜂编辑器插件之素材推荐',
           version: '1.13.59',
-          html: 'https://baidu.com',
+          resourceID: 1,
+          loader: 'micro',
         },
         {
           id: 2,
@@ -21,7 +22,8 @@ export class EditorService {
           title: '标题推荐',
           label: '大黄蜂编辑器插件之标题推荐',
           version: '2.8.12',
-          html: 'https://baidu.com',
+          resourceID: 2,
+          loader: 'micro',
         },
         {
           id: 3,
@@ -29,9 +31,28 @@ export class EditorService {
           title: '原创检测',
           label: '大黄蜂编辑器插件之原创检测',
           version: '1.1.3',
-          html: 'https://baidu.com',
+          resourceID: 3,
+          loader: 'micro',
         }
       ]
+    }
+  }
+
+  async getEditorPluginResource<T extends TEditorPluginChannel['loader']>(loader: T, id: TEditorPluginChannel['resourceID']): Promise<TEditorPluginResource[T]> {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    switch (loader) {
+      // @ts-ignore
+      case 'micro': return {
+        html: 'https://baidu.com/' + id
+      } as TEditorPluginResource['micro'];
+      // @ts-ignore
+      case 'amd': return {
+        js: 'https://baidu.com/a.js',
+        css: 'https://baidu.com/a.css'
+      } as TEditorPluginResource['amd'];
+      // @ts-ignore
+      case 'ama': return {} as TEditorPluginResource['ama'];
+      default: throw new Error('unknow loader.');
     }
   }
 }

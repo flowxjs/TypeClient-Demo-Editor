@@ -6,9 +6,8 @@ export function onEditorPluginContextCreated(ctx: TEditorContext) {
   Object.defineProperty(ctx, 'pluginFactory', {
     get: () => factory,
   });
-  factory.addLoader(async (el, url) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    if (el.id.endsWith('2'))  throw null;
-    el.innerHTML = `System load ${url} which using qiankun Micro loader.`;
-  })
+  factory.addLoader('micro', async (el, resource) => {
+    if (el.id.endsWith('2'))  throw new Error('插件加载失败');
+    el.innerHTML = `System load ${resource.html} which using qiankun Micro loader.`;
+  });
 }
