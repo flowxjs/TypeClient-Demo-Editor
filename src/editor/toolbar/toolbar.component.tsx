@@ -24,11 +24,7 @@ export class EditorToolbarComponent implements ComponentTransform {
           <Divider type="vertical" />
           <Checkbox checked>自动保存</Checkbox>
           <Divider type="vertical" />
-          {
-            props.headerStatus 
-              ? <Tooltip placement="bottom" title="收起顶部导航"><UpOutlined onClick={props.toggleHeader} /></Tooltip> 
-              : <Tooltip placement="bottom" title="展开顶部导航"><DownOutlined onClick={props.toggleHeader} /></Tooltip>
-          }
+          <Tooltip placement="bottom" title={props.headerStatus ? '收起顶部导航' : '展开顶部导航'}><UpOutlined onClick={props.toggleHeader} /></Tooltip>
         </Flex>
       </Flex>
     </div>
