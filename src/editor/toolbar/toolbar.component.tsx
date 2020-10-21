@@ -3,7 +3,7 @@ import React from 'react';
 import { Component, ComponentTransform } from "@typeclient/react";
 import { Flex } from '../../components/Flex';
 import { Divider, Tooltip, Checkbox } from 'antd';
-import { UpOutlined, DownOutlined, QuestionCircleOutlined, FullscreenOutlined, CommentOutlined, SendOutlined, SisternodeOutlined } from '@ant-design/icons';
+import { UpOutlined, QuestionCircleOutlined, FullscreenOutlined, CommentOutlined, SendOutlined, SisternodeOutlined } from '@ant-design/icons';
 
 @Component()
 export class EditorToolbarComponent implements ComponentTransform {
